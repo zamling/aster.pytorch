@@ -9,7 +9,8 @@ import torch.nn as nn
 import torch.nn.functional as F
 
 def grid_sample(input, grid, canvas = None):
-  output = F.grid_sample(input, grid)
+  #!!!!!
+  output = F.grid_sample(input, grid,align_corners=True)
   if canvas is None:
     return output
   else:

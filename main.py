@@ -201,7 +201,7 @@ def main(args):
   # Start training
   evaluator.evaluate(test_loader, step=0, tfLogger=eval_tfLogger, dataset=test_dataset)
   for epoch in range(start_epoch, args.epochs):
-    scheduler.step(epoch)
+
     current_lr = optimizer.param_groups[0]['lr']
     trainer.train(epoch, train_loader, optimizer, current_lr,
                   print_freq=args.print_freq,
@@ -211,6 +211,7 @@ def main(args):
                   test_loader=test_loader, 
                   eval_tfLogger=eval_tfLogger,
                   test_dataset=test_dataset)
+    scheduler.step(epoch)
 
   # Final test
   print('Test with best model:')

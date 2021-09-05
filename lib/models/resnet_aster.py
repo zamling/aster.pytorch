@@ -120,6 +120,7 @@ class ResNet_ASTER(nn.Module):
     cnn_feat = x5.squeeze(2) # [N, c, w]
     cnn_feat = cnn_feat.transpose(2, 1)
     if self.with_lstm:
+      self.rnn.flatten_parameters()
       rnn_feat, _ = self.rnn(cnn_feat)
       return rnn_feat
     else:

@@ -79,7 +79,7 @@ parser.add_argument('--epochs', type=int, default=6)
 parser.add_argument('--start_save', type=int, default=0,
                     help="start saving checkpoints after specific epoch")
 parser.add_argument('--seed', type=int, default=1)
-parser.add_argument('--print_freq', type=int, default=100)
+parser.add_argument('--print_freq', type=int, default=10)
 parser.add_argument('--cuda', default=True, type=bool,
                     help='whether use cuda support.')
 # testing configs

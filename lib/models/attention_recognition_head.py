@@ -251,6 +251,7 @@ class DecoderUnit(nn.Module):
 
   def forward(self, x, sPrev, yPrev):
     # x: feature sequence from the image decoder.
+    self.gru.flatten_parameters()
     batch_size, T, _ = x.size()
     alpha = self.attention_unit(x, sPrev)
     context = torch.bmm(alpha.unsqueeze(1), x).squeeze(1)
