@@ -38,8 +38,12 @@ class ModelBuilder(nn.Module):
     self.tps_inputsize = global_args.tps_inputsize
 
     self.encoder = create(self.arch,
-                      with_lstm=global_args.with_lstm,
-                      n_group=global_args.n_group)
+                          img_size=(32, 100),
+                          channels=3,
+                          patch_size=4,
+                          dim=512,
+                          depth=12,
+                          with_lstm=True)
     encoder_out_planes = self.encoder.out_planes
 
     self.decoder = AttentionRecognitionHead(

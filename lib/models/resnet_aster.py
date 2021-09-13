@@ -129,6 +129,6 @@ class ResNet_ASTER(nn.Module):
 
 if __name__ == "__main__":
   x = torch.randn(3, 3, 32, 100)
-  net = ResNet_ASTER(use_self_attention=True, use_position_embedding=True)
+  net = ResNet_ASTER(with_lstm=True)
   encoder_feat = net(x)
   print(encoder_feat.size())

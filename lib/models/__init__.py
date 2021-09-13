@@ -1,9 +1,10 @@
 from __future__ import absolute_import
 
 from .resnet_aster import *
-
+from lib.mlp_mixer_pytorch.mlp_mixer_pytorch import MLPMixer
 __factory = {
   'ResNet_ASTER': ResNet_ASTER,
+  'MLPMixer': MLPMixer,
 }
 
 def names():

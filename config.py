@@ -46,7 +46,7 @@ parser.add_argument('--image_path', type=str, default='',
 parser.add_argument('--tps_inputsize', nargs='+', type=int, default=[32, 64])
 parser.add_argument('--tps_outputsize', nargs='+', type=int, default=[32, 100])
 # model
-parser.add_argument('-a', '--arch', type=str, default='ResNet_ASTER')
+parser.add_argument('-a', '--arch', type=str, default='MLPMixer')
 parser.add_argument('--dropout', type=float, default=0.5)
 parser.add_argument('--max_len', type=int, default=100)
 parser.add_argument('--n_group', type=int, default=1)

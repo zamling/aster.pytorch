@@ -199,17 +199,17 @@ def main(args):
                     use_cuda=args.cuda, loss_weights=loss_weights)
 
   # Start training
-  evaluator.evaluate(test_loader, step=0, tfLogger=eval_tfLogger, dataset=test_dataset)
+  evaluator.evaluate(test_loader, step=0, tfLogger=None, dataset=test_dataset)
   for epoch in range(start_epoch, args.epochs):
 
     current_lr = optimizer.param_groups[0]['lr']
     trainer.train(epoch, train_loader, optimizer, current_lr,
                   print_freq=args.print_freq,
-                  train_tfLogger=train_tfLogger, 
+                  train_tfLogger=None,
                   is_debug=args.debug,
                   evaluator=evaluator, 
                   test_loader=test_loader, 
-                  eval_tfLogger=eval_tfLogger,
+                  eval_tfLogger=None,
                   test_dataset=test_dataset)
     scheduler.step(epoch)
 
